@@ -49,38 +49,58 @@ const MOCK_DATA = [
   }
 ];
 
+// Helper function to get random grid span classes
+const getRandomSpan = (index: number) => {
+  // Predefined patterns to ensure a nice layout
+  const patterns = [
+    { cols: "col-span-2", rows: "row-span-2" }, // Large square
+    { cols: "col-span-1", rows: "row-span-2" }, // Vertical rectangle
+    { cols: "col-span-2", rows: "row-span-1" }, // Horizontal rectangle
+    { cols: "col-span-1", rows: "row-span-1" }, // Small square
+  ];
+
+  // Use modulo to cycle through patterns
+  return patterns[index % patterns.length];
+};
+
 const Index = () => {
   return (
     <main className="min-h-screen w-full overflow-y-scroll p-4">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pb-16">
-        {MOCK_DATA.map((post) => (
-          <div key={post.id} className="aspect-[9/16] relative overflow-hidden rounded-lg">
-            <img
-              src={post.imageUrl}
-              alt={`Fashion by ${post.creatorName}`}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <img
-                  src={post.creatorAvatar}
-                  alt={post.creatorName}
-                  className="w-8 h-8 rounded-full border-2 border-white"
-                />
-                <span className="text-white text-sm font-semibold">{post.creatorName}</span>
-              </div>
-              <p className="text-white text-xs line-clamp-2">{post.description}</p>
-              <div className="flex items-center gap-4 mt-2">
-                <div className="flex items-center gap-1">
-                  <span className="text-white text-xs">❤️ {post.likes}</span>
+      <div className="grid grid-cols-4 md:grid-cols-6 auto-rows-[200px] gap-4 pb-16">
+        {MOCK_DATA.map((post, index) => {
+          const span = getRandomSpan(index);
+          return (
+            <div 
+              key={post.id} 
+              className={`relative overflow-hidden rounded-lg ${span.cols} ${span.rows}`}
+            >
+              <img
+                src={post.imageUrl}
+                alt={`Fashion by ${post.creatorName}`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <img
+                    src={post.creatorAvatar}
+                    alt={post.creatorName}
+                    className="w-8 h-8 rounded-full border-2 border-white"
+                  />
+                  <span className="text-white text-sm font-semibold">{post.creatorName}</span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-white text-xs">💬 {post.comments}</span>
+                <p className="text-white text-xs line-clamp-2">{post.description}</p>
+                <div className="flex items-center gap-4 mt-2">
+                  <div className="flex items-center gap-1">
+                    <span className="text-white text-xs">❤️ {post.likes}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-white text-xs">💬 {post.comments}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <Navigation />
     </main>
