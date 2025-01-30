@@ -29,6 +29,24 @@ const MOCK_DATA = [
     comments: 234,
     description: "Nature-inspired looks 🌿 #sustainable #fashion",
   },
+  {
+    id: 4,
+    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    creatorName: "MinimalistFashion",
+    creatorAvatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+    likes: 1876,
+    comments: 142,
+    description: "Clean lines and simple elegance 🤍 #minimal #fashion",
+  },
+  {
+    id: 5,
+    imageUrl: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
+    creatorName: "UrbanStyle",
+    creatorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
+    likes: 2198,
+    comments: 167,
+    description: "Urban chic vibes 🌆 #streetwear #fashion",
+  }
 ];
 
 const Index = () => {
