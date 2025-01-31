@@ -1,4 +1,4 @@
-import { Home, Search, PlusSquare, Heart, User } from "lucide-react";
+import { Home, Search, PlusSquare, Heart, User, Shirt } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
@@ -20,6 +20,10 @@ const Navigation = () => {
         <Link to="/post" className="flex flex-col items-center gap-1">
           <PlusSquare className={`w-6 h-6 ${isActive("/post") ? "text-primary" : ""}`} />
           <span className="text-xs">Post</span>
+        </Link>
+        <Link to="/ootd" className="flex flex-col items-center gap-1">
+          <Shirt className={`w-6 h-6 ${isActive("/ootd") ? "text-primary" : ""}`} />
+          <span className="text-xs">OOTD</span>
         </Link>
         <Link to="/activity" className="flex flex-col items-center gap-1">
           <Heart className={`w-6 h-6 ${isActive("/activity") ? "text-primary" : ""}`} />
