@@ -4,6 +4,7 @@ import Discover from "@/pages/Discover";
 import Post from "@/pages/Post";
 import Profile from "@/pages/Profile";
 import NotFound from "@/pages/NotFound";
+import OOTD from "@/pages/OOTD";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/activity" element={<Activity />} />
         <Route path="/post" element={<Post />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/ootd" element={<OOTD />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
