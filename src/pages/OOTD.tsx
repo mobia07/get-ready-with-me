@@ -9,7 +9,39 @@ const MOCK_DATA = [
     creatorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
     likes: 1234,
     comments: 88,
-    description: "#SpringVibes 🌸",
+    description: "#SpringVibes 🌸 #CasualChic",
+    clothingItems: [
+      {
+        name: "Oversized Cotton T-Shirt",
+        brand: "Uniqlo",
+        position: {
+          top: "20%",
+          left: "20%",
+          width: "30%",
+          height: "20%"
+        }
+      },
+      {
+        name: "High-Waisted Jeans",
+        brand: "Levi's",
+        position: {
+          top: "45%",
+          left: "20%",
+          width: "30%",
+          height: "30%"
+        }
+      },
+      {
+        name: "Classic Sneakers",
+        brand: "Nike",
+        position: {
+          top: "80%",
+          left: "20%",
+          width: "20%",
+          height: "15%"
+        }
+      }
+    ]
   },
   {
     id: 2,
@@ -18,16 +50,39 @@ const MOCK_DATA = [
     creatorAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
     likes: 2341,
     comments: 156,
-    description: "#NightOutfit ✨",
-  },
-  {
-    id: 3,
-    imageUrl: "https://images.unsplash.com/photo-1496747611176-843222e1e57c",
-    creatorName: "TrendSetter",
-    creatorAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-    likes: 3412,
-    comments: 234,
-    description: "#SustainableFashion 🌿",
+    description: "#NightOutfit ✨ #PartyLook",
+    clothingItems: [
+      {
+        name: "Sequin Dress",
+        brand: "Zara",
+        position: {
+          top: "20%",
+          left: "20%",
+          width: "40%",
+          height: "50%"
+        }
+      },
+      {
+        name: "Crystal Necklace",
+        brand: "Swarovski",
+        position: {
+          top: "15%",
+          left: "30%",
+          width: "20%",
+          height: "10%"
+        }
+      },
+      {
+        name: "Stiletto Heels",
+        brand: "Jimmy Choo",
+        position: {
+          top: "75%",
+          left: "20%",
+          width: "20%",
+          height: "20%"
+        }
+      }
+    ]
   }
 ];
 
@@ -43,6 +98,7 @@ const OOTD = () => {
           likes={post.likes}
           comments={post.comments}
           description={post.description}
+          clothingItems={post.clothingItems}
         />
       ))}
       <Navigation />
