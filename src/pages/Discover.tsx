@@ -158,7 +158,7 @@ const Discover = () => {
                         <span className="text-white">❤️ {post.likes}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-white">💬ï¸ {post.comments}</span>
+                        <span className="text-white">💬 {post.comments}</span>
                       </div>
                     </div>
                   </div>
