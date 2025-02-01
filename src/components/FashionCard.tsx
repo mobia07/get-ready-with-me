@@ -24,6 +24,30 @@ interface FashionCardProps {
   clothingItems: ClothingItem[];
 }
 
+const MOCK_COMMENTS = [
+  {
+    id: 1,
+    user: "FashionLover",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
+    comment: "Love this outfit! 😍",
+    timestamp: "2h ago"
+  },
+  {
+    id: 2,
+    user: "StyleExpert",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+    comment: "The combination is perfect!",
+    timestamp: "3h ago"
+  },
+  {
+    id: 3,
+    user: "TrendSetter",
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+    comment: "Where did you get those shoes?",
+    timestamp: "5h ago"
+  }
+];
+
 const FashionCard = ({
   imageUrl,
   creatorName,
