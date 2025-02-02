@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Navigation from "@/components/Navigation";
 import { Search, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -66,10 +66,15 @@ const Discover = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPost, setSelectedPost] = useState<typeof MOCK_DATA[0] | null>(null);
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    // Search functionality can be implemented here
-  };
+  const filteredPosts = useMemo(() => {
+    if (!searchQuery.trim()) return MOCK_DATA;
+    
+    const query = searchQuery.toLowerCase().trim();
+    return MOCK_DATA.filter(post => 
+      post.creatorName.toLowerCase().includes(query) ||
+      post.description.toLowerCase().includes(query)
+    );
+  }, [searchQuery]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -80,7 +85,7 @@ const Discover = () => {
               type="text"
               placeholder="Search fashion styles, trends, or creators..."
               value={searchQuery}
-              onChange={(e) => handleSearch(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10 pr-4 h-12 rounded-full bg-white/90 border-none"
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -93,7 +98,7 @@ const Discover = () => {
 
       <main className="container mx-auto p-4">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pb-16">
-          {MOCK_DATA.map((post) => (
+          {filteredPosts.map((post) => (
             <Sheet key={post.id}>
               <SheetTrigger asChild>
                 <div className="aspect-[9/16] relative overflow-hidden rounded-lg cursor-pointer">
