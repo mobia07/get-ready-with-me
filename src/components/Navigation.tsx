@@ -26,8 +26,8 @@ const Navigation = () => {
           <span className="text-xs">Activity</span>
         </Link>
         <Link to="/profile" className="flex flex-col items-center gap-1">
-          <User className={`w-6 h-6 ${isActive("/profile") ? "text-primary" : ""}`} />
-          <span className="text-xs">Profile</span>
+          <Shirt className={`w-6 h-6 ${isActive("/profile") ? "text-primary" : ""}`} />
+          <span className="text-xs">Closet</span>
         </Link>
       </div>
     </div>
