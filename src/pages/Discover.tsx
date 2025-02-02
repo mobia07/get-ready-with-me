@@ -164,13 +164,15 @@ const Discover = () => {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="h-screen flex flex-col bg-background">
       <SearchBar 
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
       />
-      <main className="container mx-auto p-4">
-        <PostGrid posts={filteredPosts} />
+      <main className="flex-1 overflow-y-auto">
+        <div className="container mx-auto p-4">
+          <PostGrid posts={filteredPosts} />
+        </div>
       </main>
       <Navigation />
     </div>
