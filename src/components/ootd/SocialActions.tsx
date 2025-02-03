@@ -1,4 +1,4 @@
-import { Heart, MessageCircle, Share2 } from "lucide-react";
+import { Heart, MessageCircle } from "lucide-react";
 
 interface SocialActionsProps {
   liked: boolean;
@@ -16,33 +16,26 @@ const SocialActions = ({
   onCommentClick,
 }: SocialActionsProps) => {
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className="flex flex-col items-center gap-4 mr-2">
       <button onClick={onLike} className="flex flex-col items-center gap-1">
-        <div className={`p-1.5 rounded-full ${liked ? 'animate-heart-bounce' : ''}`}>
+        <div className={`p-2 rounded-full ${liked ? 'animate-heart-bounce' : ''}`}>
           <Heart
-            className={`w-6 h-6 ${
+            className={`w-8 h-8 ${
               liked ? "fill-accent text-accent" : "text-white"
             }`}
           />
         </div>
-        <span className="text-white text-xs">{likes}</span>
+        <span className="text-white text-sm">{likes}</span>
       </button>
       
       <button 
         className="flex flex-col items-center gap-1"
         onClick={onCommentClick}
       >
-        <div className="p-1.5 rounded-full">
-          <MessageCircle className="w-6 h-6 text-white" />
+        <div className="p-2 rounded-full">
+          <MessageCircle className="w-8 h-8 text-white" />
         </div>
-        <span className="text-white text-xs">{comments}</span>
-      </button>
-      
-      <button className="flex flex-col items-center gap-1">
-        <div className="p-1.5 rounded-full">
-          <Share2 className="w-6 h-6 text-white" />
-        </div>
-        <span className="text-white text-xs">Share</span>
+        <span className="text-white text-sm">{comments}</span>
       </button>
     </div>
   );

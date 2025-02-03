@@ -45,19 +45,16 @@ const FashionCard = ({
 
   return (
     <>
-      <div className="relative w-full h-screen snap-start bg-black flex flex-col">
-        {/* Full-Screen Image */}
+      <div className="relative w-screen h-screen snap-start bg-black flex flex-col">
         <img
           src={imageUrl}
           alt="Fashion content"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Clothing Items Overlay */}
         <ClothingOverlay clothingItems={clothingItems} />
 
-        {/* Bottom Overlay with Gradient */}
-        <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
+        <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/60 to-transparent">
           <div className="flex items-start justify-between">
             <CreatorInfo
               creatorName={creatorName}
@@ -76,7 +73,6 @@ const FashionCard = ({
         </div>
       </div>
 
-      {/* Comments Dialog */}
       <CommentsDialog
         open={showComments}
         onOpenChange={setShowComments}
