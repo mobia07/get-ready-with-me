@@ -12,10 +12,10 @@ interface Comment {
 interface CommentsDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  comments: Comment[];
+  comments?: Comment[]; // Make comments optional
 }
 
-const CommentsDialog = ({ open, onOpenChange, comments }: CommentsDialogProps) => {
+const CommentsDialog = ({ open, onOpenChange, comments = [] }: CommentsDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md max-h-[80vh] overflow-y-auto">
@@ -27,22 +27,26 @@ const CommentsDialog = ({ open, onOpenChange, comments }: CommentsDialogProps) =
         </div>
 
         <div className="space-y-4">
-          {comments.map((comment) => (
-            <div key={comment.id} className="flex gap-3">
-              <img
-                src={comment.avatar}
-                alt={comment.user}
-                className="w-8 h-8 rounded-full"
-              />
-              <div className="flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold">{comment.user}</span>
-                  <span className="text-sm text-gray-500">{comment.timestamp}</span>
+          {comments.length === 0 ? (
+            <p className="text-center text-gray-500">No comments yet</p>
+          ) : (
+            comments.map((comment) => (
+              <div key={comment.id} className="flex gap-3">
+                <img
+                  src={comment.avatar}
+                  alt={comment.user}
+                  className="w-8 h-8 rounded-full"
+                />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold">{comment.user}</span>
+                    <span className="text-sm text-gray-500">{comment.timestamp}</span>
+                  </div>
+                  <p className="text-sm">{comment.comment}</p>
                 </div>
-                <p className="text-sm">{comment.comment}</p>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </DialogContent>
     </Dialog>

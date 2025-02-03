@@ -25,6 +25,23 @@ interface FashionCardProps {
   clothingItems: ClothingItem[];
 }
 
+const MOCK_COMMENTS = [
+  {
+    id: 1,
+    user: "Sarah",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
+    comment: "Love this outfit! 😍",
+    timestamp: "2h ago"
+  },
+  {
+    id: 2,
+    user: "Mike",
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61",
+    comment: "Where can I get that jacket?",
+    timestamp: "1h ago"
+  }
+];
+
 const FashionCard = ({
   imageUrl,
   creatorName,
@@ -76,6 +93,7 @@ const FashionCard = ({
       <CommentsDialog
         open={showComments}
         onOpenChange={setShowComments}
+        comments={MOCK_COMMENTS}
       />
     </>
   );
