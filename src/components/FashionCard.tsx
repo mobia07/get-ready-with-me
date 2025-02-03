@@ -1,4 +1,8 @@
 import { useState } from "react";
+import SocialActions from "./ootd/SocialActions";
+import CreatorInfo from "./ootd/CreatorInfo";
+import ClothingOverlay from "./ootd/ClothingOverlay";
+import CommentsDialog from "./ootd/CommentsDialog";
 
 interface ClothingItem {
   name: string;
@@ -21,35 +25,6 @@ interface FashionCardProps {
   clothingItems: ClothingItem[];
 }
 
-const MOCK_COMMENTS = [
-  {
-    id: 1,
-    user: "FashionLover",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
-    comment: "Love this outfit! 😍",
-    timestamp: "2h ago"
-  },
-  {
-    id: 2,
-    user: "StyleExpert",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
-    comment: "The combination is perfect!",
-    timestamp: "3h ago"
-  },
-  {
-    id: 3,
-    user: "TrendSetter",
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
-    comment: "Where did you get those shoes?",
-    timestamp: "5h ago"
-  }
-];
-
-import SocialActions from "./ootd/SocialActions";
-import CreatorInfo from "./ootd/CreatorInfo";
-import ClothingOverlay from "./ootd/ClothingOverlay";
-import CommentsDialog from "./ootd/CommentsDialog";
-
 const FashionCard = ({
   imageUrl,
   creatorName,
@@ -70,24 +45,26 @@ const FashionCard = ({
 
   return (
     <>
-      <div className="relative w-full h-[100dvh] snap-start bg-black flex flex-col">
-        <div className="relative flex-1 w-full">
-          <img
-            src={imageUrl}
-            alt="Fashion content"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <ClothingOverlay clothingItems={clothingItems} />
-        </div>
-        
-        <div className="relative bg-gradient-to-t from-black/60 to-transparent px-2 py-3">
+      <div className="relative w-full h-screen snap-start bg-black flex flex-col">
+        {/* Full-Screen Image */}
+        <img
+          src={imageUrl}
+          alt="Fashion content"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Clothing Items Overlay */}
+        <ClothingOverlay clothingItems={clothingItems} />
+
+        {/* Bottom Overlay with Gradient */}
+        <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
           <div className="flex items-start justify-between">
             <CreatorInfo
               creatorName={creatorName}
               creatorAvatar={creatorAvatar}
               description={description}
             />
-            
+
             <SocialActions
               liked={liked}
               likes={likes}
@@ -99,10 +76,10 @@ const FashionCard = ({
         </div>
       </div>
 
+      {/* Comments Dialog */}
       <CommentsDialog
         open={showComments}
         onOpenChange={setShowComments}
-        comments={MOCK_COMMENTS}
       />
     </>
   );
