@@ -71,7 +71,7 @@ const FashionCard = ({
   return (
     <>
       <div className="relative w-full h-[100dvh] snap-start bg-black flex flex-col">
-        <div className="relative flex-1">
+        <div className="relative flex-1 w-full">
           <img
             src={imageUrl}
             alt="Fashion content"
@@ -80,7 +80,7 @@ const FashionCard = ({
           <ClothingOverlay clothingItems={clothingItems} />
         </div>
         
-        <div className="relative bg-gradient-to-t from-black/60 to-transparent p-4">
+        <div className="relative bg-gradient-to-t from-black/60 to-transparent px-2 py-3">
           <div className="flex items-start justify-between">
             <CreatorInfo
               creatorName={creatorName}
